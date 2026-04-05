@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>bmi calculator</title>
+</head>
+<body>
+
+<h1>Height:{{height}}m</h1>
+<h1>Weight:{{weight}}kg</h1>
+<h1>BMI:{{bmi}}</h1>
+
+{% if bmi %}
+    {%if bmi < 20 %}
+        <h1>過瘦</h1>
+    {% elif bmi > 30 %}
+        <h1>過胖</h1>
+    {% else %}
+        <h1>適中</h1>
+    {% endif %}
+{% endif %}
+
+</body>
+</html>

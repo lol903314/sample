@@ -1,0 +1,35 @@
+{% load static %}
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>猜拳遊戲</title>
+</head>
+   <body>
+       <form action ="/myapp/mora/" method = "POST">
+            {% csrf_token %}
+            <h1>猜拳遊戲</h1>
+            <h2>玩家:{{user}}|<a href='/myapp/logout'>登出</a></h2>
+            <button type="submit" name="choice" value="paper">
+                <img src="{% static 'paper.png' %}" width="100">
+            </button>
+            <button type="submit" name="choice" value="scissors">
+                <img src="{% static 'scissors.png' %}" width="100">
+            </button>
+            <button type="submit" name="choice" value="stone">
+                <img src="{% static 'stone.png' %}" width="100">
+            </button>
+        </form>
+
+        {% if you %}
+            <h2>你的結果:{{you}}</h2>
+                <img src="{% static you|add:'.png' %}" width="100">
+            <h2>電腦的結果:{{computer}}</h2>
+                <img src="{% static computer|add:'.png' %}" width="100">
+            <h2>結果:{{result}}</h2>
+            <h2>目前猜贏次數:{{win}}</h2>
+            <h2>目前猜輸次數:{{lose}}</h2>
+            <h2>目前平手次數:{{tie}}</h2>
+            <h1><a href='/myapp/reset/'>重置次數</a></h1>
+        {% endif %}
+   </body>
+</html>

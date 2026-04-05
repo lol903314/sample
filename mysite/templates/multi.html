@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Multiply list</title>
+</head>
+<body>
+
+<h1>Row:{{row}}</h1>
+<h1>Col:{{col}}</h1>
+
+{% if box %}
+    <table border=1>
+        {% for box1 in box %}
+            <tr>
+                {% for x in box1 %}
+                    <td>{{x}}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
+</body>
+</html>
